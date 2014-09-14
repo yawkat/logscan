@@ -2,12 +2,16 @@
 
 import re
 import os
+import sys
 
 filename_pattern = re.compile(r"^proxy\.log\.\d+$")
 first_line_pattern = re.compile(r"^\d\d:\d\d:\d\d \[INFO\] Using OpenSSL based native cipher\.$")
 date_pattern = re.compile(r"^\d\d:\d\d:\d\d$")
 date_pattern_length = 8
-indir = "/home/yawkat/Development/Noxcrew/MinecraftStrike-Server/servers/bungee1000"
+if len(sys.argv) > 1:
+    indir = sys.argv[1]
+else:
+    indir = "."
 seek_step_size = 1024
 target_offset = 0
 
